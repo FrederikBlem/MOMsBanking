@@ -37,16 +37,18 @@ bin\windows\kafka-server-start.bat config\server.properties
 ```
 
 Note that you leave out '\windows\' from the path on other operating systems and change the file ending from '.bat' to '.sh'.
+
 2. Start your local RabbitMQ service on its default port. View [http://localhost:15672/](http://localhost:15672/) and login with default login details 'guest' and 'guest' if curious.
+
 3. Start the 5 different applications' main methods:
-    - MOMsContract
-    - OfficeLadyBankConsumer
-    - MumsBankConsumer
-    - MiasPiggyBankConsumer
-    - MOMsLoanProducer
+- MOMsContract
+- OfficeLadyBankConsumer
+- MumsBankConsumer
+- MiasPiggyBankConsumer
+- MOMsLoanProducer
 4. From Postman, make a Post-Request to **localhost:8085/loan-request**
-    - The header "Content-Type = application/json" is required
-    - This format is needed for a loan request:
+- The header "Content-Type = application/json" is required
+- This format is needed for a loan request:
 
 ```JSON
 {
