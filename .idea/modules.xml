@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MOMsBanking.iml" filepath="$PROJECT_DIR$/.idea/MOMsBanking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MOMsContract/MOMsContract.iml" filepath="$PROJECT_DIR$/MOMsContract/MOMsContract.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MOMsLoanProducer/MOMsLoanProducer.iml" filepath="$PROJECT_DIR$/MOMsLoanProducer/MOMsLoanProducer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiasPiggyBankConsumer/MiasPiggyBank.iml" filepath="$PROJECT_DIR$/MiasPiggyBankConsumer/MiasPiggyBank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiasPiggyBank/MiasPiggyBankConsumer.iml" filepath="$PROJECT_DIR$/MiasPiggyBank/MiasPiggyBankConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MumsBankConsumer/MumsBankConsumer.iml" filepath="$PROJECT_DIR$/MumsBankConsumer/MumsBankConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OfficeLadyBankConsumer/OfficeLadyBankConsumer.iml" filepath="$PROJECT_DIR$/OfficeLadyBankConsumer/OfficeLadyBankConsumer.iml" />
+    </modules>
+  </component>
+</project>
