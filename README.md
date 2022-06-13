@@ -68,3 +68,9 @@ Note that you leave out '\windows\' from the path on other operating systems and
 7. Go to an internet browser and enter **localhost:8085/contract/{loanNo}** in the address bar. A Loan Contract with confirmation of the loan's details should be downloadable.
 
 ## Exam Assignment Plans (TODO)
+
+The explanation video can be found in the [ExplanationsAndDiagrams folder](https://github.com/FrederikBlem/MOMsBanking/tree/main/ExplanationsAndDiagrams)
+
+![](https://raw.githubusercontent.com/FrederikBlem/MOMsBanking/main/ExplanationsAndDiagrams/Diagram1.PNG)
+The above diagram is the system at its current state as of 13/06 while the one below is a (tentative) sketch for an extended system with (most of) the requirements implemented.
+![](https://raw.githubusercontent.com/FrederikBlem/MOMsBanking/main/ExplanationsAndDiagrams/Diagram1.PNG)
