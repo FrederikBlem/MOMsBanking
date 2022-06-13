@@ -1,6 +1,7 @@
 # System Integration Exam Assignment & Mini Project 3
 
 MOMsBanking is a project centered on fulfilling the requirements for the subject System Integration's Mini Project 3 and later the Exam Assignment.
+The online repo is to be found at [https://github.com/FrederikBlem/MOMsBanking/](https://github.com/FrederikBlem/MOMsBanking/)
 
 ## Assignment Documents
 
