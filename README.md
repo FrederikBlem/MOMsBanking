@@ -74,4 +74,4 @@ The explanation video can be found in the [ExplanationsAndDiagrams folder](https
 
 ![](https://raw.githubusercontent.com/FrederikBlem/MOMsBanking/main/ExplanationsAndDiagrams/Diagram1.PNG)
 The above diagram is the system at its current state as of 13/06 while the one below is a (tentative) sketch for an extended system with (most of) the requirements implemented.
-![](https://raw.githubusercontent.com/FrederikBlem/MOMsBanking/main/ExplanationsAndDiagrams/Diagram1.PNG)
+![](https://raw.githubusercontent.com/FrederikBlem/MOMsBanking/main/ExplanationsAndDiagrams/Diagram2.PNG)
