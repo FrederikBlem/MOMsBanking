@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0">
+  <bpmn:process id="CamundaOLBank-process" isExecutable="true">
+    <bpmn:extensionElements />
+    <bpmn:startEvent id="StartEvent_1" name="Customer wants the proposed loan">
+      <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="EnterCustomerDetails" />
+    <bpmn:userTask id="EnterCustomerDetails" name="Enter customer details" camunda:formKey="camunda-forms:/forms/customerDetails.form" camunda:candidateUsers="demo">
+      <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lvejcb</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0lvejcb" sourceRef="EnterCustomerDetails" targetRef="EvaluateCustomerDetails" />
+    <bpmn:serviceTask id="EvaluateCustomerDetails" name="Evaluate customer details" camunda:delegateExpression="#{evaluateCustomerDetails}">
+      <bpmn:incoming>Flow_0lvejcb</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mlvane</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:boundaryEvent id="Event_1rtrkfj" attachedToRef="EvaluateCustomerDetails">
+      <bpmn:outgoing>Flow_0bd1abp</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1a7zqnf" />
+    </bpmn:boundaryEvent>
+    <bpmn:task id="Activity_0mqbt0h" name="Invalid details entered">
+      <bpmn:incoming>Flow_0bd1abp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0o1dvo3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0bd1abp" sourceRef="Event_1rtrkfj" targetRef="Activity_0mqbt0h" />
+    <bpmn:endEvent id="Event_0vgjcre" name="Loan is not accepted">
+      <bpmn:incoming>Flow_0o1dvo3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0o1dvo3" sourceRef="Activity_0mqbt0h" targetRef="Event_0vgjcre" />
+    <bpmn:endEvent id="Event_1r8s8el" name="Loan is accepted">
+      <bpmn:incoming>Flow_0mlvane</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0mlvane" name="Successful evaluation" sourceRef="EvaluateCustomerDetails" targetRef="Event_1r8s8el" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="CamundaOLBank-process">
+      <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
+        <di:waypoint x="215" y="257" />
+        <di:waypoint x="270" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lvejcb_di" bpmnElement="Flow_0lvejcb">
+        <di:waypoint x="370" y="257" />
+        <di:waypoint x="450" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bd1abp_di" bpmnElement="Flow_0bd1abp">
+        <di:waypoint x="500" y="199" />
+        <di:waypoint x="500" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0o1dvo3_di" bpmnElement="Flow_0o1dvo3">
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="672" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mlvane_di" bpmnElement="Flow_0mlvane">
+        <di:waypoint x="550" y="257" />
+        <di:waypoint x="672" y="257" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="573" y="256" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="239" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="153" y="282" width="88" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_08mft2c_di" bpmnElement="EnterCustomerDetails">
+        <dc:Bounds x="270" y="217" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1enthn4_di" bpmnElement="EvaluateCustomerDetails">
+        <dc:Bounds x="450" y="217" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0mqbt0h_di" bpmnElement="Activity_0mqbt0h">
+        <dc:Bounds x="450" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1r8s8el_di" bpmnElement="Event_1r8s8el">
+        <dc:Bounds x="672" y="239" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="648" y="282" width="84" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0vgjcre_di" bpmnElement="Event_0vgjcre">
+        <dc:Bounds x="672" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="663" y="145" width="55" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ncea65_di" bpmnElement="Event_1rtrkfj">
+        <dc:Bounds x="482" y="199" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

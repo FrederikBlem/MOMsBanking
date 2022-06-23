@@ -8,20 +8,22 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MiasPiggyBankConsumer" />
-        <module name="MiasPiggyBank" />
         <module name="MumsBankConsumer" />
+        <module name="MOMsLoanProducer" />
+        <module name="CamundaOfficeLadyBank" />
+        <module name="MiasPiggyBank" />
         <module name="MOMsContract" />
         <module name="OfficeLadyBankConsumer" />
-        <module name="MOMsLoanProducer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MiasPiggyBank" target="18" />
+      <module name="CamundaOfficeLadyBank" target="15" />
+      <module name="MiasPiggyBank" target="15" />
       <module name="MiasPiggyBankConsumer" target="18" />
-      <module name="MOMsContract" target="18" />
-      <module name="MOMsLoanProducer" target="18" />
-      <module name="MumsBankConsumer" target="18" />
-      <module name="OfficeLadyBankConsumer" target="18" />
+      <module name="MOMsContract" target="15" />
+      <module name="MOMsLoanProducer" target="15" />
+      <module name="MumsBankConsumer" target="15" />
+      <module name="OfficeLadyBankConsumer" target="15" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

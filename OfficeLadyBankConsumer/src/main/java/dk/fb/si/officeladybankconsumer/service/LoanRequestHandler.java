@@ -48,6 +48,12 @@ public class LoanRequestHandler {
 
     @KafkaListener(topics = "loan-acceptance", groupId = bankGroupAcceptId)
     public void listenForAcceptance(String message) {
+        /*
+        String secretAcceptanceCode = "bWluaXNraXJ0";
+        if(message.endsWith(secretAcceptanceCode)){
+            System.out.println("Acceptance code accepted.");
+        }
+        */
         logger.info("Loan acceptance received! " + message);
         LoanProposal loanProposal = getProposalById(Integer.parseInt(message.substring(10,18)));
         if (loanProposal != null) {

@@ -1,0 +1,33 @@
+{
+  "components": [
+    {
+      "label": "Email Adress",
+      "type": "textfield",
+      "id": "Field_1yzps42",
+      "key": "email",
+      "description": "What is your email address?",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Proposed Loan Number",
+      "type": "number",
+      "id": "Field_033u0pu",
+      "key": "loanNo",
+      "validate": {
+        "required": true
+      },
+      "description": "What is the Loan Number of the proposed loan?"
+    }
+  ],
+  "type": "default",
+  "id": "customerDetails",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.0.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.17.0",
+  "schemaVersion": 4
+}
