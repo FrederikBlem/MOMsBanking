@@ -18,14 +18,14 @@ public class SendLoanHandler {
     @Autowired
     KafkaTemplate<String, String> template;
 
-    public void sendLoanProposal(LoanProposal loanProposal) {
+    public void sendLoanProposal(LoanOLProposal loanProposal) {
         String proposal = convertProposalToString(loanProposal);
         template.send(topic, proposal);
         logger.info("Sent the Loan Proposal to Kafka.");
         template.flush();
     }
 
-    public String convertProposalToString(LoanProposal loanProposal) {
+    public String convertProposalToString(LoanOLProposal loanProposal) {
         try {
             JSONObject jsonProposal = new JSONObject();
             jsonProposal.put("loanNo", loanProposal.getLoanNo());

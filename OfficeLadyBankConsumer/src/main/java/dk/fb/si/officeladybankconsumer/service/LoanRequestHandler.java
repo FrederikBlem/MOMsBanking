@@ -22,8 +22,10 @@ public class LoanRequestHandler {
     private final String bankGroupRequestId = "request-officeladybank";
     private final String bankGroupAcceptId = "accept-officeladybank";
 
+    private final String acceptOLTopic = "ol-loan-acceptance";
+
     private final Logger logger = LoggerFactory.getLogger(LoanRequestHandler.class);
-    private final List<LoanProposal> proposals = new ArrayList<>();
+    private final List<LoanOLProposal> proposals = new ArrayList<>();
 
     @Autowired
     LoanCalculator loanCalculator = new LoanCalculator();
@@ -36,9 +38,12 @@ public class LoanRequestHandler {
             // Convert the message into a LoanRequest object from the json format.
             LoanRequest loanRequest = new Gson().fromJson(message, LoanRequest.class);
             // Build a Loan Proposal using the LoanRequest object.
-            LoanProposal loanProposal = loanCalculator.buildLoanProposal(loanRequest);
+            LoanOLProposal loanProposal = loanCalculator.buildLoanProposal(loanRequest);
             // Store the LoanProposal for later usage.
             proposals.add(loanProposal);
+
+            logger.info("The proposals now include: " + loanProposal.toString());
+
             // Send the Loan Offer.
             sendLoanHandler.sendLoanProposal(loanProposal);
         } catch (Exception e) {
@@ -46,16 +51,19 @@ public class LoanRequestHandler {
         }
     }
 
-    @KafkaListener(topics = "loan-acceptance", groupId = bankGroupAcceptId)
+    @KafkaListener(topics = acceptOLTopic, groupId = bankGroupAcceptId)
     public void listenForAcceptance(String message) {
-        /*
         String secretAcceptanceCode = "bWluaXNraXJ0";
-        if(message.endsWith(secretAcceptanceCode)){
-            System.out.println("Acceptance code accepted.");
+        LoanOLProposal loanOLProposal = new Gson().fromJson(message, LoanOLProposal.class);
+
+        //Hope this check works!
+        if (!loanOLProposal.getAccessCode().contains(secretAcceptanceCode)){
+            logger.info("Invalid Acceptance code!");
         }
-        */
-        logger.info("Loan acceptance received! " + message);
-        LoanProposal loanProposal = getProposalById(Integer.parseInt(message.substring(10,18)));
+
+        logger.info("Loan acceptance received! " + loanOLProposal);
+
+        LoanOLProposal loanProposal = getProposalById(loanOLProposal.getLoanNo());
         if (loanProposal != null) {
             logger.info("The loan was found in our databases!");
             ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -75,12 +83,26 @@ public class LoanRequestHandler {
         }
     }
 
-    private LoanProposal getProposalById(int loanNo) {
-        for(LoanProposal proposal: proposals){
+    private LoanOLProposal getProposalById(int loanNo) {
+        for(LoanOLProposal proposal: proposals){
             if (proposal.getLoanNo() == loanNo){
                 return proposal;
             }
         }
         return null;
+    }
+
+    public String buildProposalString(LoanOLProposal loanOLProposal){
+        return "{" +
+                "loanNo=" + loanOLProposal.getLoanNo() +
+                ", customerId='" + loanOLProposal.getCustomerId() + '\'' +
+                ", bankId='" + loanOLProposal.getBankId() + '\'' +
+                ", bankName='" + loanOLProposal.getBankName() + '\'' +
+                ", customerName='" + loanOLProposal.getCustomerName() + '\'' +
+                ", customerHonorific='" + loanOLProposal.getCustomerHonorific() + '\'' +
+                ", loanAmount=" + loanOLProposal.getLoanAmount() +
+                ", loanInterest=" + loanOLProposal.getLoanInterest() +
+                ", paybackMonths=" + loanOLProposal.getPaybackMonths() +
+                '}';
     }
 }

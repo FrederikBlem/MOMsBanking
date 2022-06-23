@@ -9,7 +9,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="CamundaOfficeLadyBank" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -45,10 +47,6 @@
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.1" level="project" />
     <orderEntry type="library" name="Maven: org.camunda.connect:camunda-connect-core:1.5.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.camunda.connect:camunda-connect-connectors-all:1.5.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.16" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.16" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.16" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.16" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.3.16" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.uuid:java-uuid-generator:3.2.0" level="project" />
@@ -61,8 +59,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.13.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.13.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.13.1" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.1" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jersey:2.6.4" level="project" />
@@ -143,5 +139,33 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-devtools:2.6.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.6.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.6.4" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:4.10.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okio:okio-jvm:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.6.10" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-streams:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:3.0.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.luben:zstd-jni:1.5.0-2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.lz4:lz4-java:1.7.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.xerial.snappy:snappy-java:1.1.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.rocksdb:rocksdbjni:6.19.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.kafka:spring-kafka:2.8.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.16" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.16" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.16" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-messaging:5.3.16" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.16" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.retry:spring-retry:1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.9" level="project" />
+    <orderEntry type="library" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.persistence:jakarta.persistence-api:2.2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
   </component>
 </module>

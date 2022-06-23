@@ -21,6 +21,11 @@ public class LoanService {
 
     private final String requestTopic = "loan-request";
     private final String acceptTopic = "loan-acceptance";
+
+    private final String requestOLTopic = "ol-loan-request";
+    private final String acceptOLTopic = "ol-loan-accept";
+
+
     private final Logger logger = LoggerFactory.getLogger(LoanService.class);
     private final List<LoanProposal> proposals = new ArrayList<>();
     private int loanNo;
@@ -52,10 +57,12 @@ public class LoanService {
     @KafkaListener(topics = "loan-proposal", groupId = "my-group")
     public LoanProposal listenForProposal(String message) {
         LoanProposal loanProposal = new Gson().fromJson(message, LoanProposal.class);
-        logger.info("Received a loan proposal from bank.");
+        logger.info("Received a loan proposal from " + loanProposal.getBankName() + ".");
         proposals.add(loanProposal);
         return loanProposal;
     }
+
+
 
     public List<LoanProposal> getProposals() {
         return proposals;
@@ -67,8 +74,22 @@ public class LoanService {
             JSONObject request = new JSONObject();
             request.put("loanNo", loanNo);
             request.put("status", "accept");
-            template.send(acceptTopic, request.toString());
+            //template.send(acceptTopic, request.toString());
+            template.send(acceptOLTopic, request.toString());
             logger.info("Sent acceptance for loan offer with ID: " +loanNo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendOLLoanRequest(int loanNo) {
+        this.loanNo = loanNo;
+        try {
+            JSONObject request = new JSONObject();
+            request.put("loanNo", loanNo);
+            request.put("status", "request");
+            template.send(requestOLTopic, request.toString());
+            logger.info("Sent request for OL loan offer with ID: " +loanNo);
         } catch (Exception e) {
             e.printStackTrace();
         }

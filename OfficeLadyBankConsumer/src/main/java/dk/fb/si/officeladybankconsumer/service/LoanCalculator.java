@@ -10,8 +10,8 @@ public class LoanCalculator {
 
     Random random = new Random();
 
-    public LoanProposal buildLoanProposal(LoanRequest loanRequest){
-        LoanProposal loanProposal = new LoanProposal();
+    public LoanOLProposal buildLoanProposal(LoanRequest loanRequest){
+        LoanOLProposal loanProposal = new LoanOLProposal();
 
         // Get customer details from the request
         loanProposal.setCustomerId(loanRequest.getCustomerId());
@@ -26,11 +26,11 @@ public class LoanCalculator {
         // Calculating the Loan Amount using the given request details
         int total = 0;
 
-        int salaryMultiplier = 6;
-        int debtMultiplier = 3;
+        int salaryMultiplier = 5;
+        int debtMultiplier = 2;
 
-        double carMultiplier = 0.9;
-        double houseMultiplier = 2.4;
+        double carMultiplier = 0.7;
+        double houseMultiplier = 3.0;
 
         total += (loanRequest.getYearlySalary()*salaryMultiplier)-(loanRequest.getDebtAmount()*debtMultiplier);
         if (loanRequest.isCarOwner()) {
@@ -42,7 +42,7 @@ public class LoanCalculator {
         loanProposal.setLoanAmount(total);
 
         // Calculating the Loan Interest using the given request details
-        double divider = 115000.0;
+        double divider = 1150000.0;
         double interest = total / divider;
         // Reuse the multiplier variables.
         carMultiplier = 1.3;
